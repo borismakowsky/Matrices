@@ -1,0 +1,75 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+#define MAX 10
+
+using namespace std;
+
+void cargar (int mat[MAX][MAX],int fil,int col);
+void mostrar (int mat[MAX][MAX],int fil,int col );
+void sumar (int mat[MAX][MAX],int mat1[MAX][MAX],int fil,int col);
+
+void main ()
+{
+	int i,j,fil,col,mat1[MAX][MAX],mat2[MAX][MAX];
+	cout<<"INGRESE EL NUMERO DE FILAS"<<endl;
+	cin>>fil;
+	cout<<"INGRESE EL NUMERO DE COLUMNAS"<<endl;
+	cin>>col;
+	cout<<"MATRIZ 1"<<endl;
+	cargar(mat1,fil,col);
+	cout<<endl;
+	mostrar(mat1,fil,col);
+	cout<<"MATRIZ 2"<<endl;
+	cargar(mat2,fil,col);
+	cout<<endl;
+	mostrar(mat2,fil,col);
+	cout<<endl;
+	cout<<"LA SUMA ES IGUAL A:"<<endl;
+	sumar(mat1,mat2,fil,col);
+	getch();
+}
+void cargar (int mat[MAX][MAX],int fil,int col)
+{
+	int i,j;
+	for (i=0;i<fil;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			cout<<"INTRODUCIR EL ELEMENTO ["<<i<<"]["<<j<<"]: ";
+			cin>>mat[i][j];
+		}
+	}
+}
+void mostrar (int mat[MAX][MAX],int fil,int col )
+{
+	int i,j;
+	for (i=0;i<fil;i++)
+	{
+		for (j=0;j<col;j++)
+		{
+			cout<<mat[i][j]<<"\t";
+		}
+		cout<<endl;
+	}
+}
+void sumar (int mat[MAX][MAX],int mat1[MAX][MAX],int fil,int col)
+{
+	int i,j,mat2[MAX][MAX];	
+	for(i=0;i<fil;i++)
+	{
+		for(j=0;j<col;j++)
+		{
+			mat2[i][j]=mat[i][j]+mat1[i][j];
+		}
+	}
+	for (i=0;i<fil;i++)
+	{
+		for (j=0;j<col;j++)
+		{
+			cout<<mat2[i][j]<<"\t";
+		}
+		cout<<endl;
+	}
+}
