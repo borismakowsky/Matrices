@@ -1,0 +1,61 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#define MAX 20
+
+using namespace std;
+
+int fibonacci(int pos);
+void cargar(int a[MAX][MAX],int n);
+void mostrar(int a[MAX][MAX],int n);
+
+void main()
+{
+	int n;
+	int a[MAX][MAX];
+	cout<<"Ingrese el orden "<<endl;
+	cin>>n;
+	cargar(a,n);
+	cout<<"MATRIZ FIBONACCI"<<endl;
+	mostrar(a,n);
+
+	getch();
+}
+void cargar(int a[MAX][MAX],int n)
+{
+	int pos=0;
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+			a[i][j]=fibonacci(pos);
+			pos++;
+		}
+	}
+}
+
+
+
+int fibonacci(int pos)
+{
+	int a=-1,b=1,c;
+	for(int i=0;i<=pos;i++)
+	{
+		c=a+b;
+		a=b;
+		b=c;
+	}
+	return c;
+}
+void mostrar(int a[MAX][MAX],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+			cout<<a[i][j]<<"\t";
+		}
+		cout<<endl;
+	}
+}
